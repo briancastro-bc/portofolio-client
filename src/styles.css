@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
+:root{
+    --dark-color: rgba(28,29,30, 0.95);
+    --light-color: rgb(248, 244, 244);
+    --primary-color: #463f64;
+    --secondary-color: #5944AC;
+}
+
+body {
+    font-family: 'Patua One', cursive;
+}
+
+body.dark-mode {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+body::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+body::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-button:increment, body::-webkit-scrollbar-button {
+    display: none;
+}
+
+body::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--dark-color);
+    border-radius: 20px;
+    border: 2px solid #fff;
+}
+
+body::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
