@@ -42,3 +42,13 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
     border-radius: 10px;
 }
+
+.own-btn {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+
+.own-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}

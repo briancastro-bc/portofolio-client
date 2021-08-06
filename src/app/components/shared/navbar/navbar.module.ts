@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { RouterModule } from '@angular/router';
+import { DesignModule } from 'src/app/design.module';
+import { SpinnerModule } from '../components/spinner/spinner.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +11,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    DesignModule,
+    SpinnerModule
   ],
   exports: [
     NavbarComponent
