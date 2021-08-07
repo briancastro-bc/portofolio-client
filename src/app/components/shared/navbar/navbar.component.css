@@ -1,10 +1,28 @@
 .navbar {
-    background: var(--light-color);
+    background: var(--dark-color);
     color: var(--light-color);
 }
 
 .active {
     background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.link {
+    text-decoration: none;
+    color: var(--light-color);
+}
+
+.link-active {
+    color: var(--secondary-color);
+}
+
+mdb-navbar .nav-flex-icons a {
+    margin-right: 1rem;
+}
+
+mat-sidenav-container {
+    background-color: var(--dark-color);
     color: var(--light-color);
 }
 
@@ -18,7 +36,7 @@ mat-sidenav {
 }
 
 mat-sidenav-container {
-    height: calc(100vh - 67px);
+    height: calc(100vh - 64px);
 }
 
 .menu-button {
