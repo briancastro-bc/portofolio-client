@@ -1,0 +1,35 @@
+.icon-notify {
+    margin-right: 0.7rem;
+}
+
+.dropdown-menu {
+    word-wrap: break-word;
+}
+
+.dropdown-menu .dropdown-item {
+    color: var(--light-color);
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: var(--secondary-color);
+}
+
+.dropdown-menu .dropdown-item p {
+    margin-bottom: auto;
+    word-wrap: break-word;
+}
+
+.counter {
+    position: relative;
+    top: -10px;
+    left: auto;
+    z-index: 2;
+    padding: 1px 7px;
+    margin-left: -23px;
+    font-size: 11px;
+    color: #fff;
+    background-color: #fe1212;
+    border-radius: 10em;
+}

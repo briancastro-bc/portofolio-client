@@ -13,12 +13,25 @@
     color: var(--light-color);
 }
 
+.link:hover {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
 .link-active {
     color: var(--secondary-color);
 }
 
 mdb-navbar .nav-flex-icons a {
-    margin-right: 1rem;
+    margin-right: 0.7rem;
+}
+
+mdb-navbar .nav-flex-icons .github:hover {
+    color: #706d6d;
+}
+
+mdb-navbar .nav-flex-icons .youtube:hover {
+    color:  #c4302b;
 }
 
 mat-sidenav-container {

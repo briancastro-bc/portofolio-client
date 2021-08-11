@@ -14,12 +14,14 @@ import { SpinnerModule } from './components/shared/components/spinner/spinner.mo
 //Our modules.
 import { NavbarModule } from './components/shared/navbar/navbar.module';
 import { DesignModule } from './design.module';
+import { NotificationModule } from './components/shared/components/notification/notification.module';
 
 //Interceptors
 import { ApiInterceptor, TokenInterceptor, SpinnerInterceptor } from 'src/app/interceptors';
 
 //Services
 import { AuthService } from './services/auth.service';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
 	declarations: [
@@ -34,6 +36,7 @@ import { AuthService } from './services/auth.service';
 		DesignModule,
 		NavbarModule,
 		SpinnerModule,
+		NotificationModule,
 		ServiceWorkerModule.register('ngsw-worker.js', {
 			enabled: environment.production,
 			registrationStrategy: 'registerWhenStable:30000'
@@ -49,6 +52,7 @@ import { AuthService } from './services/auth.service';
 	],
 	providers: [
 		AuthService,
+		NotificationService,
 		{
 			provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true
 		},

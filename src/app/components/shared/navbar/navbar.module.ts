@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar.component';
 import { RouterModule } from '@angular/router';
 import { DesignModule } from 'src/app/design.module';
 import { SpinnerModule } from '../components/spinner/spinner.module';
+import { NotificationModule } from '../components/notification/notification.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { SpinnerModule } from '../components/spinner/spinner.module';
     CommonModule,
     RouterModule,
     DesignModule,
-    SpinnerModule
+    SpinnerModule,
+    NotificationModule
   ],
   exports: [
     NavbarComponent

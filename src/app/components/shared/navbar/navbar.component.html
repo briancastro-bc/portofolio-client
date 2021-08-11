@@ -1,7 +1,7 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark ie-nav scrolling-navbar sticky-top"
     [containerInside]="true" role="navigation">
     <mdb-navbar-brand>
-        <a class="mr-3" mdbTooltip="Menú" placement="bottom" *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <a class="mr-4" mdbTooltip="Menú" placement="bottom" *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
             <mdb-icon *ngIf="!sidenav.opened" fas icon="bars" size="lg"></mdb-icon>
             <mdb-icon *ngIf="sidenav.opened" fas icon="times" size="lg"></mdb-icon>
         </a>
@@ -10,6 +10,7 @@
         </span>
     </mdb-navbar-brand>
     <div class="navbar-nav ml-auto nav-flex-icons">
+        <app-notification></app-notification>
         <ng-container *ngIf="this.authService.verifyToken() == null; else userWithToken">
             <a routerLink="/login" routerLinkActive="link-active" mdbTooltip="Signin"
             placement="bottom" class="link" mdbWavesEffect>
@@ -21,10 +22,11 @@
                 <mdb-icon fas icon="sign-out-alt" size="lg"></mdb-icon>
             </a>
         </ng-template>
-        
-        
-        <a class="link">
-            <mdb-icon fas icon="bell" size="lg"></mdb-icon>
+        <a href="https://github.com/bye-code" target="__blank" mdbTooltip="Github" placement="bottom" class="link github" mdbWavesEffect>
+            <mdb-icon fab icon="github" size="lg"></mdb-icon>
+        </a>
+        <a href="https://www.youtube.com/channel/UC-F8g4frLRTvcEj7Qh9NKZw" target="__blank" mdbTooltip="Youtube" placement="bottom" class="link youtube" mdbWavesEffect>
+            <mdb-icon fab icon="youtube" size="lg"></mdb-icon>
         </a>
     </div>
 </mdb-navbar>
@@ -35,8 +37,8 @@
 
         <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
 
-        <h4 class="name">Brian Castro</h4>
-        <p class="designation">Jr. Developer</p>
+        <h4 class="name">{{ user.username ? user.username : 'Brian Castro' }}</h4>
+        <p class="designation">{{ user.name ? user.name : 'Jr. Developer' }} {{ user ? user.lastName : '' }}</p>
 
         <mat-divider></mat-divider>
 
