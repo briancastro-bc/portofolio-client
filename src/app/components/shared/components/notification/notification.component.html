@@ -1,6 +1,8 @@
 <div class="btn-group" mdbDropdown placement="left">
-    <a mdbDropdownToggle class="icon-notify link waves-light" mdbTooltip="Notifications" placement="bottom">
-        <span class="counter">{{ (Notifications$| async)?.length }}</span>
+    <a mdbDropdownToggle class="icon-notify icon-link waves-light" mdbTooltip="Notifications" placement="bottom">
+        <div *ngIf="(Notifications$| async)!.length > 0">
+            <span class="counter">{{ (Notifications$| async)?.length }}</span>
+        </div>
         <mdb-icon fas icon="bell" size="lg"></mdb-icon>
     </a>
     <div class="dropdown-menu dropdown-menu-right z-depth-5 bg-dark ">
@@ -8,19 +10,27 @@
             Notificaciones
         </h6>
         <div class="divider dropdown-divider"></div>
-        <a class="dropdown-item" *ngFor="let notify of Notifications$ | async">
-            <p class="h6 text-center">{{ notify.title | titlecase | uppercase }}</p>
-            <div class="row">
-                <div class="col">
-                    <p class="text-center"> 
-                        <mdb-icon fas icon="calendar"></mdb-icon>
-                        {{ notify.datetime | date }}
-                    </p>
+        <ng-container *ngIf="Notifications$ | async; else NoAnyNotifications">
+            <a class="dropdown-item" *ngFor="let notify of Notifications$ | async">
+                <p class="h6 text-center">{{ notify.title | titlecase | uppercase }}</p>
+                <div class="row">
+                    <div class="col">
+                        <p class="text-center"> 
+                            <mdb-icon fas icon="calendar"></mdb-icon>
+                            {{ notify.datetime | date }}
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>{{ notify.description }}</p>
+                    </div>
                 </div>
-                <div class="col">
-                    <p>{{ notify.description }}</p>
-                </div>
-            </div>
-        </a>
+            </a>
+        </ng-container>
+        <ng-template #NoAnyNotifications>
+            <p class="dropdown-item">
+                <span class="h6 text-center">No hay notificaciones</span>
+            </p>
+        </ng-template>
+        
     </div>
 </div>

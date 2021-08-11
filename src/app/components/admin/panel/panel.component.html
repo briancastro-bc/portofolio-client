@@ -1,0 +1,19 @@
+<mat-sidenav-container>
+    <mat-sidenav #panelSidenav="matSidenav" class="mat-elevation-z8">
+
+        <a routerLink="notifications" routerLinkActive="side-active" mdbBtn class="menu-button own-btn" mdbTooltip="Notificaciones"
+            placement="bottom" mdbWavesEffect>
+            <mdb-icon fas icon="bell" size="3x"></mdb-icon>
+        </a>
+        <a routerLink="signup" routerLinkActive="side-active" mdbBtn class="menu-button own-btn" mdbTooltip="Registrar"
+            placement="bottom" mdbWavesEffect>
+            <mdb-icon fas icon="user-plus" size="3x"></mdb-icon>
+        </a>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div id="content">
+            <router-outlet></router-outlet>
+          </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

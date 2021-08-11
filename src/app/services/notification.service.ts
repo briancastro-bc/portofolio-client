@@ -37,4 +37,20 @@ export class NotificationService {
 				})
 			);
 	}
+
+	public createNotification(notification: INotification): Observable<INotification> {
+		return this.http.post<INotification|any>('api/admin/notifications', notification)
+			.pipe(
+				filter(res => res && !!res),
+				tap(
+					(res) => {
+						console.log(res);
+					}
+				),
+				catchError((err: HttpErrorResponse) => {
+					this.message.error(err.error.message, 'Error');
+					throw err;
+				})
+			);
+	}
 }

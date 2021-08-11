@@ -2,6 +2,10 @@
     margin-right: 0.7rem;
 }
 
+.icon-link mdb-icon:hover {
+    color: #999894;
+}
+
 .dropdown-menu {
     word-wrap: break-word;
 }

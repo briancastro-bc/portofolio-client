@@ -42,18 +42,27 @@
 
         <mat-divider></mat-divider>
 
-        <a routerLink="home" routerLinkActive="active" mdbBtn size="sm" class="menu-button own-btn" mdbTooltip="Inicio"
+        <a routerLink="home" routerLinkActive="side-active" mdbBtn size="sm" class="menu-button own-btn" mdbTooltip="Inicio"
         placement="top" mdbWavesEffect>
             <mdb-icon fas icon="home" size="md"></mdb-icon>
             <span>Home</span>
         </a>
-        <a routerLink="asd" routerLinkActive="active" mdbBtn size="sm" class="menu-button own-btn" mdbTooltip="Acerca de"
-        placement="top" mdbWavesEffect>
-            <mdb-icon fas icon="user" size="md"></mdb-icon>
-            <span>Profile</span>
-        </a>
+        <ng-container *ngIf="user.username">
+            <a routerLink="asd" routerLinkActive="active" mdbBtn size="sm" class="menu-button own-btn" mdbTooltip="Acerca de"
+                placement="top" mdbWavesEffect>
+                <mdb-icon fas icon="user" size="md"></mdb-icon>
+                <span>Profile</span>
+            </a>
+            <ng-container *ngIf="user.isAdmin">
+                <a routerLink="panel" routerLinkActive="side-active" mdbBtn size="sm" class="menu-button own-btn" mdbTooltip="Panel"
+                placement="top" mdbWavesEffect>
+                    <mdb-icon fas icon="tools" size="md"></mdb-icon>
+                    <span>Panel</span>
+                </a>
+            </ng-container>
+        </ng-container>
         <a routerLink="asd" routerLinkActive="active" mdbBtn size="sm" class="menu-button own-btn" mdbTooltip="Proyectos"
-        placement="top" mdbWavesEffect>
+            placement="top" mdbWavesEffect>
             <mdb-icon fas icon="rocket" size="md"></mdb-icon>
             <span>About</span>
         </a>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoggedInGuard } from './guards/logged-in.guard';
+import { LoggedInGuard, NotLoggedInGuard } from 'src/app/guards';
 
 const routes: Routes = [
 	{
@@ -17,6 +17,13 @@ const routes: Routes = [
 		loadChildren: () => import('./components/public/login/login.module').then(m => m.LoginModule),
 		canActivate: [
 			LoggedInGuard
+		]
+	},
+	{ 
+		path: 'panel', 
+		loadChildren: () => import('./components/admin/panel/panel.module').then(m => m.PanelModule),
+		canActivate: [
+			NotLoggedInGuard
 		]
 	},
 	{
