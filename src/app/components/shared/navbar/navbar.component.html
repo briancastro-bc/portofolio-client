@@ -1,33 +1,35 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark ie-nav scrolling-navbar sticky-top"
-    [containerInside]="true" role="navigation">
-    <mdb-navbar-brand>
-        <a class="mr-4" mdbTooltip="Menú" placement="bottom" *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-            <mdb-icon *ngIf="!sidenav.opened" fas icon="bars" size="lg"></mdb-icon>
-            <mdb-icon *ngIf="sidenav.opened" fas icon="times" size="lg"></mdb-icon>
-        </a>
-        <span class="navbar-brand font-weight-bold">
-            Bye Code<span class="font-weight-bold ">!</span>
-        </span>
-    </mdb-navbar-brand>
-    <div class="navbar-nav ml-auto nav-flex-icons">
-        <app-notification></app-notification>
-        <ng-container *ngIf="this.authService.verifyToken() == null; else userWithToken">
-            <a routerLink="/login" routerLinkActive="link-active" mdbTooltip="Signin"
-            placement="bottom" class="link" mdbWavesEffect>
-                <mdb-icon fas icon="sign-in-alt" size="lg"></mdb-icon>
+    [containerInside]="false" role="navigation">
+    <div class="container-fluid">
+        <mdb-navbar-brand>
+            <a class="mr-4" mdbTooltip="Menú" placement="bottom" *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+                <mdb-icon *ngIf="!sidenav.opened" fas icon="bars" size="lg"></mdb-icon>
+                <mdb-icon *ngIf="sidenav.opened" fas icon="times" size="lg"></mdb-icon>
             </a>
-        </ng-container>
-        <ng-template #userWithToken>
-            <a mdbTooltip="Logout" placement="bottom" class="link" mdbWavesEffect (click)="this.authService.removeSession()">
-                <mdb-icon fas icon="sign-out-alt" size="lg"></mdb-icon>
+            <span class="navbar-brand font-weight-bold">
+                Bye Code<span class="font-weight-bold ">!</span>
+            </span>
+        </mdb-navbar-brand>
+        <div class="navbar-nav ml-auto nav-flex-icons">
+            <app-notification></app-notification>
+            <ng-container *ngIf="this.authService.verifyToken() == null; else userWithToken">
+                <a routerLink="/login" routerLinkActive="link-active" mdbTooltip="Signin"
+                placement="bottom" class="link" mdbWavesEffect>
+                    <mdb-icon fas icon="sign-in-alt" size="lg"></mdb-icon>
+                </a>
+            </ng-container>
+            <ng-template #userWithToken>
+                <a mdbTooltip="Logout" placement="bottom" class="link" mdbWavesEffect (click)="this.authService.removeSession()">
+                    <mdb-icon fas icon="sign-out-alt" size="lg"></mdb-icon>
+                </a>
+            </ng-template>
+            <a href="https://github.com/bye-code" target="__blank" mdbTooltip="Github" placement="bottom" class="link github" mdbWavesEffect>
+                <mdb-icon fab icon="github" size="lg"></mdb-icon>
             </a>
-        </ng-template>
-        <a href="https://github.com/bye-code" target="__blank" mdbTooltip="Github" placement="bottom" class="link github" mdbWavesEffect>
-            <mdb-icon fab icon="github" size="lg"></mdb-icon>
-        </a>
-        <a href="https://www.youtube.com/channel/UC-F8g4frLRTvcEj7Qh9NKZw" target="__blank" mdbTooltip="Youtube" placement="bottom" class="link youtube" mdbWavesEffect>
-            <mdb-icon fab icon="youtube" size="lg"></mdb-icon>
-        </a>
+            <a href="https://www.youtube.com/channel/UC-F8g4frLRTvcEj7Qh9NKZw" target="__blank" mdbTooltip="Youtube" placement="bottom" class="link youtube" mdbWavesEffect>
+                <mdb-icon fab icon="youtube" size="lg"></mdb-icon>
+            </a>
+        </div>
     </div>
 </mdb-navbar>
 

@@ -1,1 +1,84 @@
-<p>notifications works!</p>
+<section id="content-notifications">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 d-flex">
+                <div id="notifications-content" class="justify-content-center align-self-center mx-auto pt-5">
+                    <mdb-card [cascade]="true" [narrower]="true">
+                        <div class="view view-cascade bg-dark narrower py-2 mx-4 mb-3 d-flex justify-content-center align-items-center">
+                            <mdb-icon fas icon="bell" size="2x"></mdb-icon>
+                            <h3 class="white-text mx-3 text-center">Notificaciones</h3>
+                            <a mdbBtn color="white" [outline]="true" [rounded]="true" size="sm" type="button" class="px-2" mdbTooltip="Crear notificaciones" placement="right" mdbWavesEffect>
+                                <mdb-icon fas icon="plus" class="mt-0"></mdb-icon>
+                            </a>
+                        </div>
+                        <div class="px-4">
+                            <div class="table-wrapper">
+                                <table class="mb-0" mdbTable [hover]="true">
+                                    <thead>
+                                        <tr>
+                                            <!--<th>
+                                                <mdb-checkbox></mdb-checkbox>
+                                            </th>-->
+                                            <th class="th-lg">
+                                                <a>Uid
+                                                    <mdb-icon fas icon="key" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                            <th class="th-lg">
+                                                <a>Título
+                                                    <mdb-icon fas icon="heading" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                            <th class="th-lg">
+                                                <a>Descripción
+                                                    <mdb-icon fas icon="audio-description" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                            <th class="th-lg">
+                                                <a>Visibilidad
+                                                    <mdb-icon fas icon="eye" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                            <th class="th-lg">
+                                                <a>Expiración
+                                                    <mdb-icon fas icon="hourglass-end" class="ml-1"></mdb-icon>
+                                                </a>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <form [formGroup]="notificationForm" (onSubmit)="onSubmit()">
+                                            <ng-container *ngIf="Notifications$ | async; else NoAnyNotifications">
+                                                <tr *ngFor="let notify of Notifications$ | async">
+                                                    <!--<th scope="row">
+                                                        <mdb-checkbox></mdb-checkbox>
+                                                    </th>-->
+                                                    <td>
+                                                        {{notify.title}}
+                                                    </td>
+                                                    <td>
+                                                        {{notify.description}}
+                                                    </td>
+                                                    <td>
+                                                        {{notify.isVisible}}
+                                                    </td>
+                                                </tr>
+                                            </ng-container>
+                                            <ng-template #NoAnyNotifications>
+                                                <tr>
+                                                    <td>
+                                                        No hay notificaciones creadas.
+                                                    </td>
+                                                </tr>
+                                            </ng-template>
+                                        </form>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </mdb-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
