@@ -27,6 +27,7 @@ export class NotificationService {
 				filter(res => res && !!res),
 				tap(
 					(res) => {
+						console.log(res);
 						const { notifications } = res;
 						this.NotificationSubject.next(notifications);
 					}
@@ -39,12 +40,13 @@ export class NotificationService {
 	}
 
 	public createNotification(notification: INotification): Observable<INotification> {
-		return this.http.post<INotification|any>('api/admin/notifications', notification)
+		return this.http.post<INotification|any>('api/admin/notifications/create', notification)
 			.pipe(
 				filter(res => res && !!res),
 				tap(
 					(res) => {
 						console.log(res);
+						this.message.success(res.message, 'Hecho');
 					}
 				),
 				catchError((err: HttpErrorResponse) => {

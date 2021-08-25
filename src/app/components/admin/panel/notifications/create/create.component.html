@@ -1,0 +1,72 @@
+<div id="create-notification">
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-lg-12 d-flex">
+                <div id="create-notification-form" class="justify-content-center align-self-center mx-auto">
+                    <mdb-card>
+                        <mdb-card-header class="own-btn white-text text-center py-3">
+                            <h3>
+                                <strong>Crear</strong>
+                            </h3>
+                        </mdb-card-header>
+                        <mdb-card-body class="px-lg-5">
+                            <form [formGroup]="notificationForm" (ngSubmit)="onSubmit()" class="text-center" style="color: #757575;" enctype="multipart/form-data">
+                                <p>Join our mailing list. We write rarely, but only the best content.</p>
+                                <p>
+                                    <a routerLink="..">Ver notificaciones</a>
+                                </p>
+                                <div class="md-form mt-3">
+                                    <input type="text" name="title" id="titleInput" class="form-control" formControlName="title" [(ngModel)]="notification.title" mdbInput>
+                                    <label for="titleInput">Título</label>
+                                    <div *ngIf="title.invalid && (title.dirty || title.touched)" class="text-muted">
+                                        <div *ngIf="title.errors?.required">
+                                            <mdb-icon fas icon="times-circle"></mdb-icon> title is required.
+                                        </div>
+                                        <div *ngIf="title.errors?.minlength">
+                                            <mdb-icon fas icon="times-circle"></mdb-icon> title must be at least 5 character long.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="md-form">
+                                    <input type="url" id="pictureInput" class="form-control" mdbInput>
+                                    <label for="pictureInput">Imagen</label>
+                                </div>
+                                <div class="md-form">
+                                    <textarea type="text" name="description" id="descriptionInput" class="md-textarea form-control" formControlName="description" [(ngModel)]="notification.description" mdbInput></textarea>
+                                    <label for="descriptionInput">Descripción</label>
+                                    <div *ngIf="description.invalid && (title.dirty || description.touched)">
+                                        <div *ngIf="description.errors?.required">
+                                            <mdb-icon fas icon="times-circle"></mdb-icon> Descripcion is required.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col align-self-center">
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" name="isVisible" id="visible" class="custom-control-input" checked>
+                                            <label class="custom-control-label" for="visible">Visible</label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="md-form">
+                                            <input type="date" name="expiresIn" id="expiresInput" class="form-control" formControlName="expiresIn" [(ngModel)]="notification.expiresIn" mdbInput>
+                                            <label for="expiresInput">Fecha de expiración</label>
+                                            <div *ngIf="expiresIn.invalid && (title.dirty || expiresIn.touched)">
+                                                <div *ngIf="expiresIn.errors?.required">
+                                                    <mdb-icon fas icon="times-circle"></mdb-icon> Expires in is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button mdbBtn [block]="true" class="z-depth-0 my-4 waves-effect white-text own-btn" [disabled]="!notificationForm.valid" mdbWavesEffect type="submit">
+                                    Guardar
+                                </button>
+                            </form>
+                        </mdb-card-body>
+                    </mdb-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

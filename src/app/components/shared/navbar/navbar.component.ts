@@ -13,7 +13,7 @@ import { IUser } from 'src/app/models';
 })
 export class NavbarComponent implements OnInit {
 
-	User$ = this.authService.User$;
+	//User$ = this.authService.User$;
 	user: IUser = JSON.parse(localStorage.getItem('user') || '{}');
 
 	@ViewChild(MatSidenav)

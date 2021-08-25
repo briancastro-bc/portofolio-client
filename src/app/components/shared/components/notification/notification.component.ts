@@ -10,12 +10,12 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class NotificationComponent implements OnInit, OnDestroy {
 
-	Notifications$ = this.authService.Notifications$;
+	Notifications$ = this.notificationService.Notifications$;
 
-	constructor(public authService: NotificationService) { }
+	constructor(public notificationService: NotificationService) { }
 
 	ngOnInit(): void {
-		
+		//this.Notifications$.subscribe();
 	}
 
 	ngOnDestroy(): void {

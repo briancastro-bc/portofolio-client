@@ -1,10 +1,14 @@
+.side-active {
+    background-color: var(--primary-color);
+}
+
 mat-sidenav-container {
     background-color: transparent;
     color: var(--light-color);
 }
 
 mat-sidenav {
-    width: 130px;
+    width: 110px;
     border-right: none;
     background: rgb(37, 37, 37);
     color: var(--light-color);

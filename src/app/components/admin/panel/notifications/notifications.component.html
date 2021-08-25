@@ -1,1 +1,44 @@
-<p>notifications works!</p>
+<section id="panel-notifications">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 d-flex mt-5" *ngFor="let notify of Notifications$ | async">
+                <div id="notifications-content" class="justify-content-center align-self-center mx-auto">
+                    <div class="card-deck">
+                        <mdb-card class="z-depth-5 bg-dark">
+                            <mdb-card-body>
+                                <mdb-card-title>
+                                    <h5>{{ notify.title | titlecase }}</h5>
+                                </mdb-card-title>
+                                <mdb-card-text>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <img src="{{ notify.picture ? notify.picture : 'assets/images/notification.png' }}" alt="Notification image" class="img-fluid">
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span>
+                                                {{ notify.description }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </mdb-card-text>
+                            </mdb-card-body>
+                            <mdb-card-footer>
+                                <small class="text-muted">
+                                    {{ notify.expiresIn | date }}
+                                </small>
+                            </mdb-card-footer>
+                        </mdb-card>
+                    </div>
+                </div>
+            </div>
+            <ng-template #NoAnyNotification>
+                <div class="col-lg-12 d-flex mt-5 pt-5">
+                    <div id="no-notification" class="justify-content-center align-self-center mx-auto text-center">
+                        <h2>No hay notificaciones</h2>
+                        <p>¿Quieres <a routerLink="create">crear una</a> notificación?</p>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</section>
