@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class SpinnerService {
 
-	isLoading$ = new Subject<boolean>();
+	public isLoading$: Subject<boolean> = new Subject<boolean>();
 
 	public showSpinner(): void {
 		this.isLoading$.next(true);

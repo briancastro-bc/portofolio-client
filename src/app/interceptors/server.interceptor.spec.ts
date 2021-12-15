@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TokenInterceptor } from './token.interceptor';
+import { ServerInterceptor } from './server.interceptor';
 
-describe('TokenInterceptor', () => {
+describe('ServerInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
-      TokenInterceptor
+      ServerInterceptor
       ]
   }));
 
   it('should be created', () => {
-    const interceptor: TokenInterceptor = TestBed.inject(TokenInterceptor);
+    const interceptor: ServerInterceptor = TestBed.inject(ServerInterceptor);
     expect(interceptor).toBeTruthy();
   });
 });

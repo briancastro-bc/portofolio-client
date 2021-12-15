@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 		password: ''
 	}
 
-	loginForm: FormGroup | any;
+	loginForm!: FormGroup;
 	
 	constructor(private authService: AuthService, private router: Router) {  }
 

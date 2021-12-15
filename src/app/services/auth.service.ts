@@ -14,12 +14,10 @@ export class AuthService {
 	private UserSubject: Subject<IUser[]> = new Subject<IUser[]>();
 	User$: Observable<IUser[]> = this.UserSubject.asObservable();
 
-	constructor(private http: HttpClient, private router: Router, private message: ToastrService) {
-		
-	}
+	constructor(private http: HttpClient, private router: Router, private message: ToastrService) {}
 
 	public login(user: IUser): Observable<IUser> {
-		return this.http.post<IUser|any>('api/signin', user)
+		return this.http.post<IUser|any>('auth/login', user)
 			.pipe(
 				filter(res => res && !!res),
 				tap(
@@ -32,14 +30,30 @@ export class AuthService {
 					}
 				),
 				catchError((err: HttpErrorResponse) => {
-					this.message.error(err.error.message, 'Error');
+					this.message.error('Los datos son incorrectos', 'Error');
+					throw err;
+				})
+			);
+	}
+
+	public signup(user: IUser): Observable<IUser> {
+		return this.http.post<IUser|any>('auth/signup', user)
+			.pipe(
+				filter(res => res && !!res),
+				tap(
+					(res) => {
+						console.log(res);
+					}
+				),
+				catchError((err: HttpErrorResponse) => {
+					this.message.error('Ocurrió un error mientras registrabamos tu cuenta', 'Error');
 					throw err;
 				})
 			);
 	}
 
 	public logout(): Observable<any> {
-		return this.http.post<any>('api/logout', {})
+		return this.http.post<any>('logout', {})
 			.pipe(
 				filter(res => res && !!res),
 				tap(

@@ -6,7 +6,7 @@
             <mdb-icon *ngIf="sidenav.opened" fas icon="times" size="lg"></mdb-icon>
         </a>
         <span class="navbar-brand font-weight-bold">
-            Bye Code<span class="font-weight-bold ">!</span>
+            <span class="font-weight-bold ">O'Mall</span>
         </span>
     </mdb-navbar-brand>
     <div class="navbar-nav ml-auto nav-flex-icons">
@@ -35,10 +35,10 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-        <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+        <img class="avatar mat-elevation-z8" src="assets/images/mall.png" />
 
-        <h4 class="name">{{ user.username ? user.username : 'Brian Castro' }}</h4>
-        <p class="designation">{{ user.name ? user.name : 'Jr. Developer' }} {{ user ? user.lastName : '' }}</p>
+        <h4 class="name">{{ user.username ? user.username : 'Our Mall' }}</h4>
+        <p class="designation">{{ user.name ? user.name : 'Tú mejor espacio' }} {{ user ? user.lastName : '' }}</p>
 
         <mat-divider></mat-divider>
 

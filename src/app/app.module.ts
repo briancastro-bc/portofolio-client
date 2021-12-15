@@ -5,7 +5,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ToastrModule } from 'ngx-toastr';
-import { environment } from '../environments/environment';
+
+import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,7 @@ import { DesignModule } from './design.module';
 import { NotificationModule } from './components/shared/components/notification/notification.module';
 
 //Interceptors
-import { ApiInterceptor, TokenInterceptor, SpinnerInterceptor } from 'src/app/interceptors';
+import { ServerInterceptor } from 'src/app/interceptors';
 
 //Services
 import { AuthService } from './services/auth.service';
@@ -32,11 +33,6 @@ import { NotificationService } from './services/notification.service';
 		BrowserAnimationsModule,
 		AppRoutingModule,
 		HttpClientModule,
-		FormsModule,
-		DesignModule,
-		NavbarModule,
-		SpinnerModule,
-		NotificationModule,
 		ServiceWorkerModule.register('ngsw-worker.js', {
 			enabled: environment.production,
 			registrationStrategy: 'registerWhenStable:30000'
@@ -48,19 +44,18 @@ import { NotificationService } from './services/notification.service';
 			resetTimeoutOnDuplicate: true,
 			progressBar: true,
 			positionClass: 'toast-bottom-left'
-		})
+		}),
+		FormsModule,
+		DesignModule,
+		NavbarModule,
+		SpinnerModule,
+		NotificationModule,
 	],
 	providers: [
-		AuthService,
-		NotificationService,
+		//AuthService,
+		//NotificationService,
 		{
-			provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true
-		},
-		{
-			provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true
-		},
-		{
-			provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true
+			provide: HTTP_INTERCEPTORS, useClass: ServerInterceptor, multi: true
 		}
 	],
 	bootstrap: [

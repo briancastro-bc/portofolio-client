@@ -6,22 +6,22 @@
 
                 <input class="input form-control" type="text" name="username" formControlName="username" [(ngModel)]="user.username" 
                 placeholder="Username" autofocus>
-                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-muted">
-                    <div *ngIf="username.errors?.required">
+                <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="text-muted">
+                    <div *ngIf="username?.errors?.required">
                         <mdb-icon fas icon="times-circle"></mdb-icon> Username is required.
                     </div>
-                    <div *ngIf="username.errors?.minlength">
+                    <div *ngIf="username?.errors?.minlength">
                         <mdb-icon fas icon="times-circle"></mdb-icon> Username must be at least 1 character long.
                     </div>
                 </div>
 
                 <input class="input form-control" type="password" name="password" formControlName="password" [(ngModel)]="user.password"
                 placeholder="Password">
-                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-muted">
-                    <div *ngIf="password.errors?.required">
+                <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-muted">
+                    <div *ngIf="password?.errors?.required">
                         <mdb-icon fas icon="times-circle"></mdb-icon> Password is required.
                     </div>
-                    <div *ngIf="password.errors?.minlength">
+                    <div *ngIf="password?.errors?.minlength">
                         <mdb-icon fas icon="times-circle"></mdb-icon> Password must be at least 8 character long.
                     </div>
                 </div>
@@ -29,9 +29,6 @@
                 <button class="own-btn" mdbBtn size="sm" mdbTooltip="Iniciar sesión" placement="bottom" mdbWavesEffect [disabled]="!loginForm.valid">
                     Signin <mdb-icon fas icon="sign-in-alt" size="lg"></mdb-icon>
                 </button>
-                <p>
-                    Solo para usuarios <span class="text-danger">autorizados*</span>
-                </p>
             </form>
         </div>
         <img class="image-container img-fluid" src="assets/images/login.svg" alt="Signin image">
